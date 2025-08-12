@@ -1,0 +1,279 @@
+@use 'src/scss/core' as *;
+
+:host {
+  --tui-secondary: var(--io-background);
+  --tui-padding: 0;
+  --tui-height-l: 60px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-label {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--tui-padding-s);
+  align-items: center;
+  height: 60px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.badge-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.asset-types-aside {
+  width: 191px;
+  height: 469px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background: var(--tui-secondary);
+  border-bottom-right-radius: var(--tui-radius-m);
+  border-bottom-left-radius: var(--tui-radius-m);
+
+  &__scroll {
+    min-height: 450px;
+    max-height: 100%;
+  }
+
+  &__search-bar {
+    width: 191px;
+    margin-bottom: 2px;
+
+    ::ng-deep {
+      .tui-autofill {
+        background-color: var(--tui-secondary);
+        border-radius: 0;
+        border-top-left-radius: var(--tui-radius-m);
+        border-top-right-radius: var(--tui-radius-m);
+      }
+    }
+
+    &-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &__search-bar-container {
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        height: 51px;
+
+        app-filter-list-element {
+          ::ng-deep {
+            .t-wrapper {
+              width: 51px;
+              height: 51px;
+            }
+
+            .t-content {
+              color: var(--tui-text-02);
+            }
+          }
+
+          ::ng-deep .filter-list-element__clicked-element {
+            .t-content {
+              color: black;
+            }
+          }
+        }
+
+        app-search-bar {
+          flex: 1;
+        }
+
+        ::ng-deep {
+          .tui-autofill {
+            height: 51px;
+          }
+
+          .t-wrapper {
+            background: var(--tui-base-01);
+          }
+        }
+      }
+    }
+  }
+
+  &__list-element {
+    width: 169px;
+    height: 41px;
+
+    border-radius: 8px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+
+    &-element {
+      &._disabled {
+        cursor: not-allowed !important;
+
+        app-blockchains-promo-badge {
+          z-index: 1;
+
+          pointer-events: auto;
+        }
+
+        ::ng-deep {
+          .t-wrapper {
+            background: var(--tui-secondary-hover) !important;
+            opacity: 1 !important;
+          }
+        }
+      }
+
+      ::ng-deep {
+        .t-content {
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+
+  &__blockchain-header {
+    display: none;
+  }
+
+  &__mobile-chain-type-row {
+    @include flex(row, center, space-between);
+    gap: 7px;
+    width: 100%;
+  }
+}
+
+.open-selector {
+  width: 75px;
+
+  ::ng-deep app-rubic-button {
+    [tuiButton] {
+      height: 68px;
+
+      border-radius: var(--tui-radius-m);
+
+      &._pressed,
+      &:focus,
+      &:hover {
+        background: transparent;
+        box-shadow: none;
+      }
+    }
+
+    .t-wrapper {
+      padding: 0 !important;
+    }
+  }
+}
+
+@include b($mobile-md) {
+  :host {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .icon-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .asset-types-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow-x: auto;
+
+    background-color: unset;
+    border-radius: unset;
+
+    &__list-element {
+      width: 80px;
+      height: 62px;
+
+      border-radius: 16px;
+
+      ::ng-deep {
+        .t-content {
+          justify-content: center;
+        }
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    &__blockchain-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+
+      &-label {
+        @include font(18px, 18px, 400, var(--tui-text-01), 0.54px);
+      }
+
+      &-expand {
+        color: var(--tui-primary);
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+
+    &__scroll {
+      min-height: unset;
+
+      ::ng-deep tui-scroll-controls {
+        display: none;
+      }
+    }
+  }
+
+  .asset-types-aside::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@include b($mobile-sm-middle) {
+  .open-selector {
+    width: 57px;
+
+    ::ng-deep app-rubic-button {
+      [tuiButton] {
+        height: 52px;
+      }
+    }
+  }
+}
+
+.large-iframe-asset {
+  height: 430px;
+
+  tui-scrollbar {
+    min-height: 410px;
+  }
+}

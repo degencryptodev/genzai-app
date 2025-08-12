@@ -1,0 +1,40 @@
+@use 'src/scss/core' as *;
+
+:host {
+  width: 100%;
+}
+
+.custom-token {
+  &__element {
+    padding: 5px 0;
+
+    cursor: default;
+
+    &_disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+
+      &:hover {
+        background-color: unset;
+      }
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+
+    ::ng-deep {
+      .t-wrapper {
+        background-color: var(--tui-primary);
+
+        span {
+          height: 100%;
+
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

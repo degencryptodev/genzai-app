@@ -1,0 +1,47 @@
+@use '../../../../scss/core' as *;
+
+.modal {
+  &__content {
+    text-align: center;
+
+    @include b($tablet) {
+      padding: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  &__body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-right: 80px;
+
+    img {
+      width: 80px;
+    }
+  }
+
+  &__footer {
+    margin-top: 20px;
+
+    &-text {
+      @include font(16px, 32px, 500, var(--primary-text));
+      margin-bottom: 16px;
+
+      @include b($tablet) {
+        line-height: 24px;
+      }
+    }
+  }
+
+  ::ng-deep app-rubic-button button {
+    float: left;
+    width: 150px;
+  }
+}

@@ -1,0 +1,55 @@
+<div class="list-container">
+  <div class="list-container__search">
+    <app-search-bar [searchBarType]="'blockchains'"></app-search-bar>
+  </div>
+
+  <tui-scrollbar class="scrollbar">
+    <div class="list" *ngLet="blockchainsToShow$ | async as blockchainsList">
+      <ng-container
+        *ngTemplateOutlet="chainItem; context: { item: allChainsSelectorItem, disabled: false }"
+      ></ng-container>
+
+      <ng-container *ngFor="let blockchainItem of blockchainsList">
+        <ng-container *ngLet="blockchainItem | functionCall : isDisabled : this as disabled">
+          <ng-container
+            *ngTemplateOutlet="chainItem; context: { item: blockchainItem, disabled: false }"
+          ></ng-container>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="blockchainsList.length === 0">
+        <app-no-result label="No blockchains found" description="Try another query"></app-no-result>
+      </ng-container>
+    </div>
+  </tui-scrollbar>
+</div>
+
+<ng-template #chainItem let-blockchainItem="item" let-disabled="disabled">
+  <button
+    tuiButton
+    appearance="flat"
+    type="button"
+    size="m"
+    class="list__element"
+    (click)="!disabled && onItemClick(blockchainItem.name)"
+    [tuiHint]="blockchainItem | functionCall : getHintText : this"
+    tuiHintAppearance="error"
+    [disabled]="disabled"
+  >
+    <div class="list__element-container">
+      <div class="list__element-wrapper">
+        <div class="list__image-container">
+          <img [src]="blockchainItem.icon" [alt]="blockchainItem.label" />
+        </div>
+        <span class="list__label">{{ blockchainItem.label }}</span>
+      </div>
+      <ng-container *ngIf="isMobile && getBlockchainTag(blockchainItem) as tag">
+        <div class="list__badge-container">
+          <app-blockchains-promo-badge
+            [tag]="tag"
+            [blockchain]="blockchainItem.name"
+          ></app-blockchains-promo-badge>
+        </div>
+      </ng-container>
+    </div>
+  </button>
+</ng-template>

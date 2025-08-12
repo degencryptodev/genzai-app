@@ -1,0 +1,94 @@
+@use 'src/scss/core' as *;
+
+.assets-selector {
+  &__row {
+    display: flex;
+    gap: 10px;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  &__header {
+    display: flex;
+
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+app-search-bar {
+  width: 100%;
+}
+
+.token-list {
+  &__header {
+    display: none;
+  }
+}
+
+.token-list-container {
+  width: 100%;
+  min-height: 410px;
+  max-height: 410px;
+
+  &__list {
+    height: 100%;
+  }
+}
+
+.blockchains-list-container {
+  width: 100%;
+}
+
+@include b($mobile-md) {
+  .assets-selector {
+    padding-top: var(--tui-padding-l);
+
+    &__row {
+      > .assets-selector__row {
+        gap: 12px;
+        margin: var(--tui-padding-l) 0;
+        margin-bottom: 0;
+        padding: 0 var(--tui-padding-l);
+
+        ::ng-deep app-search-bar {
+          .tui-autofill {
+            height: 51px;
+          }
+        }
+
+        ::ng-deep app-switch-list-type-button {
+          height: 51px;
+
+          .t-wrapper {
+            width: 51px;
+            height: 51px;
+          }
+
+          button {
+            width: auto;
+          }
+        }
+      }
+    }
+
+    > .assets-selector__row {
+      flex-direction: column;
+      gap: 0;
+      margin-top: 0;
+    }
+  }
+
+  .token-list {
+    &__header {
+      display: block;
+      padding: 0 1rem;
+
+      &-label {
+        @include font(18px, 18px, 400, var(--tui-text-01), 0.54px);
+      }
+    }
+  }
+}

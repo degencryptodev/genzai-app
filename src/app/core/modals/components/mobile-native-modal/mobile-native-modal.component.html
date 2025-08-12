@@ -1,0 +1,20 @@
+<div class="mobile-native-backdrop"></div>
+<div
+  class="mobile-native-content"
+  (tuiSwipe)="onSwipe($event, title, 'content')"
+  (click)="title === 'Expires in' ? toggle() : null"
+>
+  <div
+    class="mobile-native-chevron"
+    (click)="toggle()"
+    (tuiSwipe)="onSwipe($event, title, 'header')"
+  >
+    <div class="mobile-native-chevron-rectangle"></div>
+  </div>
+
+  <div class="mobile-native-content__inner">
+    <div *polymorpheusOutlet="context.content; context: context"></div>
+  </div>
+
+  <app-mobile-menu *ngIf="showMobileMenu"></app-mobile-menu>
+</div>

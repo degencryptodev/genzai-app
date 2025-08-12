@@ -1,0 +1,41 @@
+@use 'src/scss/core' as *;
+
+.back-button {
+  app-rubic-button {
+    ::ng-deep button {
+      border-radius: 15px;
+    }
+  }
+
+  &__container {
+    position: relative;
+
+    width: 16px;
+    height: 16px;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+
+    width: 38px;
+    height: 38px;
+    padding: 12px;
+
+    transform: rotate(90deg);
+
+    ::ng-deep svg {
+      width: 100%;
+      height: 100%;
+
+      path {
+        fill: var(--tui-text-01);
+      }
+    }
+  }
+
+  ::ng-deep .t-wrapper[data-appearance='secondary'] {
+    background: transparent !important;
+  }
+}
