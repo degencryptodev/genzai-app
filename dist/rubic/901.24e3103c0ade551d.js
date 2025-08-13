@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrubic=self.webpackChunkrubic||[]).push([[901],{64282:(c,s,u)=>{u.r(s),u.d(s,{timestamp:()=>t});const t="2025-08-13T07:12:13.180Z"}}]);
