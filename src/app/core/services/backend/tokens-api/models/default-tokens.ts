@@ -37,7 +37,7 @@ export const defaultTokens: Record<BlockchainName, Token[]> = {
       name: 'Rubic',
       symbol: 'RBC',
       decimals: 18,
-      image: 'assets/images/icons/default-tokens/rbc.png',
+      image: 'assets/images/icons/default-tokens/genzai.png',
       type: 'TOKEN',
       ...defaultTokenParams
     },
@@ -97,7 +97,7 @@ export const defaultTokens: Record<BlockchainName, Token[]> = {
       name: 'Rubic',
       symbol: 'BRBC',
       decimals: 18,
-      image: 'assets/images/icons/default-tokens/rbc.png',
+      image: 'assets/images/icons/default-tokens/genzai.png',
       ...defaultTokenParams
     }
   ],
@@ -118,7 +118,7 @@ export const defaultTokens: Record<BlockchainName, Token[]> = {
       name: 'Rubic (PoS)',
       symbol: 'RBC',
       decimals: 18,
-      image: 'assets/images/icons/default-tokens/rbc.png',
+      image: 'assets/images/icons/default-tokens/genzai.png',
       ...defaultTokenParams
     },
     {

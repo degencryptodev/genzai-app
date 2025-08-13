@@ -46,7 +46,7 @@ export class FaqComponent {
     {
       title: 'Can I use multiple wallets to participate?',
       answer:
-        'No, using multiple wallets to farm this event is strictly prohibited. The Rubic team will detect and exclude additional wallets from the claim list, allowing only the original wallet to remain eligible.<br/><br/>If you have any questions or need clarification, feel free to reach out to Rubic Support'
+        'No, using multiple wallets to farm this event is strictly prohibited. The Rubic team will detect and exclude additional wallets from the claim list, allowing only the original wallet to remain eligible.<br/><br/>If you have any questions or need clarification, feel free to reach out to GENZAI Support'
     }
   ];
 }

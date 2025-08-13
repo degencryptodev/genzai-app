@@ -17,7 +17,7 @@
     [noFrameLink]="noFrameLink"
   ></app-logo>
 
-  <app-rubic-menu-toggler class="rubic-header__menu" *ngIf="!useLargeIframe">
+  <!-- <app-rubic-menu-toggler class="rubic-header__menu" *ngIf="!useLargeIframe">
     <app-rubic-menu
       [swapActive]="rootPath && (swapType$ | async) === SWAP_PROVIDER_TYPE.INSTANT_TRADE"
       [crossChainActive]="
@@ -25,9 +25,9 @@
       "
       (swapClick)="navigateToSwaps()"
     ></app-rubic-menu>
-  </app-rubic-menu-toggler>
+  </app-rubic-menu-toggler> -->
 
-  <button
+  <!-- <button
     class="swap-button"
     tuiButton
     appearance="secondary"
@@ -42,9 +42,9 @@
     [ngStyle]="{ 'margin-right': useLargeIframe ? 'auto' : 'unset' }"
   >
     Swaps
-  </button>
+  </button> -->
 
-  <button
+  <!-- <button
     *ngIf="!useLargeIframe && !isMobile"
     class="testnets-button"
     tuiButton
@@ -54,7 +54,7 @@
     (click)="navigateToTestnets()"
   >
     Testnets
-  </button>
+  </button> -->
 
   <!--  <button-->
   <!--    tuiButton-->
