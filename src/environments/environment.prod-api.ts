@@ -3,7 +3,7 @@ import { Env } from './models/env';
 
 export const ENVIRONMENT: Env = {
   environmentName: 'prod-api',
-  production: false,
+  production: true,
 
   apiBaseUrl: '//api.rubic.exchange/api',
   apiTokenUrl: 'https://api.rubic.exchange/api',
